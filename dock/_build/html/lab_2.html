@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lab_2 module &mdash; документация Lab2 </title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Lab2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">lab_2 module</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Lab2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>lab_2 module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/lab_2.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-lab_2">
+<span id="lab-2-module"></span><h1>lab_2 module<a class="headerlink" href="#module-lab_2" title="Ссылка на этот заголовок"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="lab_2.binSecondPhase">
+<span class="sig-prename descclassname"><span class="pre">lab_2.</span></span><span class="sig-name descname"><span class="pre">binSecondPhase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lab_2.html#binSecondPhase"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#lab_2.binSecondPhase" title="Ссылка на это определение"></a></dt>
+<dd><p>Данная функция является продолжением бинарного поиска. Сравниваются элементы массива,
+на которые указывают start и end с ключем, тогда возвращается список элементов, иначе
+будет выполняться следующий алгаритм: если элемент, на который указывает фиксированная
+левая граница совпадает с ключем и центральный элемент не совпадает с ключем, тогда
+сдвигаем правую границу на указатель на центральный элемент с округлением вниз. Если
+данное условие не выполняется, тогда сравниваются элемент, на который указывает
+фиксированная левая граница и центральный элемент с ключем, и если они совпадают,
+то правая граница уменьшается на 1. Если данное условие не выполняется, тогда проверяется
+если элемент, на который указывает фиксированная правая граница совпадает с ключем
+и центральный элемент не совпадает с ключем, то сдвигается левая граница на указатель
+на центральный элемент с округлением вверх. Если данное условие тоже не выаолняется, тогда
+сравниваются элемент, на который указывает фиксированная правая граница и центральный элемент
+с ключем. Если они совпадают, то левая граница увеличивается на 1. Возвращается список
+найденных элементов.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lst</strong> (<em>list</em>) – Исходный массив, в котором осуществляется поиск</p></li>
+<li><p><strong>start</strong> (<em>int</em>) – левая граница массива</p></li>
+<li><p><strong>end</strong> (<em>int</em>) – правая граница массива</p></li>
+<li><p><strong>key</strong> (<em>str</em>) – Ключ, по которому осуществляется поиск</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат</dt>
+<dd class="field-even"><p>Массив найденных элементов</p>
+</dd>
+<dt class="field-odd">Тип результата</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lab_2.binarySearch">
+<span class="sig-prename descclassname"><span class="pre">lab_2.</span></span><span class="sig-name descname"><span class="pre">binarySearch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lab_2.html#binarySearch"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#lab_2.binarySearch" title="Ссылка на это определение"></a></dt>
+<dd><p>В данной функции реализован бинарный поиск. Сравниваем центральный элемент с ключем.
+Если центральный элемент массива больше ключа, то отбрасываем левую часть массива.
+Если центральный элемент массива меньше ключа, то отбрасываем правую часть массива.
+И продолжаем этот алгоритм, пока не найдем нужный элемент, либо поймем, что данного
+элемента в массиве нет. Если элемент был найден, то переходим к следующему этапу поиска,
+и после его завершения возращаем массив, с найденными элементами. Если данного элемента
+в массиве нет, то возвращаем -1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – Ключ, по которому осуществляется поиск</p></li>
+<li><p><strong>lst</strong> (<em>list</em>) – Исходный массив, в котором осуществляется поиск</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат</dt>
+<dd class="field-even"><p>Массив найденных элементов</p>
+</dd>
+<dt class="field-odd">Тип результата</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lab_2.directSearch">
+<span class="sig-prename descclassname"><span class="pre">lab_2.</span></span><span class="sig-name descname"><span class="pre">directSearch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lab_2.html#directSearch"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#lab_2.directSearch" title="Ссылка на это определение"></a></dt>
+<dd><p>В данной функции реализован прямой поиск. Проходимся по массиву и поэлементно делаем
+сравнение с ключем. Если элемент с ключем совпадает, то мы добавляем его в новый массив. Если
+элемент не нашелся, то возвращаем -1, иначе получившийся массив.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – Ключ, по которому осуществляется поиск</p></li>
+<li><p><strong>lst</strong> (<em>list</em>) – Исходный массив, в котором осуществляется поиск</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат</dt>
+<dd class="field-even"><p>Массив найденных элементов</p>
+</dd>
+<dt class="field-odd">Тип результата</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lab_2.exportedGoods">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lab_2.</span></span><span class="sig-name descname"><span class="pre">exportedGoods</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">price</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lab_2.html#exportedGoods"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#lab_2.exportedGoods" title="Ссылка на это определение"></a></dt>
+<dd><blockquote>
+<div><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</div></blockquote>
+<p>Класс, содержащий в себе данные об экспортируемых товарах.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Наименование товара</p></li>
+<li><p><strong>country</strong> (<em>str</em>) – Страна (куда экспортируется товар)</p></li>
+<li><p><strong>volume</strong> (<em>int</em>) – Объем поставляемой продукции</p></li>
+<li><p><strong>price</strong> (<em>int</em>) – Сумма в рублях</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lab_2.generator">
+<span class="sig-prename descclassname"><span class="pre">lab_2.</span></span><span class="sig-name descname"><span class="pre">generator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">countOfFields</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lab_2.html#generator"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#lab_2.generator" title="Ссылка на это определение"></a></dt>
+<dd><p>Функция генерирует список полей, состоящих из данных об экспортируемых товарах, таких как наименование 
+товара, страна (куда экспортируется товар), объем поставляемой продукции, сумма в рублях.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><p><strong>countOfFields</strong> (<em>int</em>) – Размерность (количество полей).</p>
+</dd>
+<dt class="field-even">Результат</dt>
+<dd class="field-even"><p>Возвращает список всех полей.</p>
+</dd>
+<dt class="field-odd">Тип результата</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lab_2.mergeSort">
+<span class="sig-prename descclassname"><span class="pre">lab_2.</span></span><span class="sig-name descname"><span class="pre">mergeSort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lab_2.html#mergeSort"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#lab_2.mergeSort" title="Ссылка на это определение"></a></dt>
+<dd><p>Сортировка слиянием. В данной функции проиходит рекурсивное распадания массивов
+на две части. Далее два образовавшихся массива передаются в функицю mergeTwoList,
+в которой происходит объединение переданных массивов.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><p><strong>lst</strong> (<em>list</em>) – Массив, который нужно отсортировать</p>
+</dd>
+<dt class="field-even">Результат</dt>
+<dd class="field-even"><p>Объединенный массив</p>
+</dd>
+<dt class="field-odd">Тип результата</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lab_2.mergeTwoList">
+<span class="sig-prename descclassname"><span class="pre">lab_2.</span></span><span class="sig-name descname"><span class="pre">mergeTwoList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lab_2.html#mergeTwoList"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#lab_2.mergeTwoList" title="Ссылка на это определение"></a></dt>
+<dd><p>В данной функции происходит объединение двух массивов. При чем элемент первого массива
+сравнивается с элементом второго массива и меньший элемент добавляется в объединенный массив.
+Если один из массивов достигает конца после цикла, а другой нет, то в объединенный массив
+добавляются оставшиеся элементы не достигшего конца массива.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lst1</strong> (<em>list</em>) – Массив, который нужно объединить со вторым массивом</p></li>
+<li><p><strong>lst2</strong> (<em>list</em>) – Массив, который нужно объединить с первым массивом</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат</dt>
+<dd class="field-even"><p>Объединенный массив</p>
+</dd>
+<dt class="field-odd">Тип результата</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Andrej Gilin.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

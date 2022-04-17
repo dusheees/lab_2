@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lab_2 &mdash; документация Lab2 </title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Lab2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Lab2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Код модуля</a> &raquo;</li>
+      <li>lab_2</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Исходный код lab_2</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># coding: utf-8</span>
+
+<span class="c1"># In[2]:</span>
+
+
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c1"># функция принимает количество всех полей и генерирует эти поля</span>
+<div class="viewcode-block" id="generator"><a class="viewcode-back" href="../lab_2.html#lab_2.generator">[документация]</a><span class="k">def</span> <span class="nf">generator</span><span class="p">(</span><span class="n">countOfFields</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Функция генерирует список полей, состоящих из данных об экспортируемых товарах, таких как наименование </span>
+<span class="sd">    товара, страна (куда экспортируется товар), объем поставляемой продукции, сумма в рублях.</span>
+<span class="sd">    </span>
+<span class="sd">    :param countOfFields: Размерность (количество полей).</span>
+<span class="sd">    :type countOfFields: int</span>
+<span class="sd">    </span>
+<span class="sd">    :return: Возвращает список всех полей.</span>
+<span class="sd">    :rtype: list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># наименование товара</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="p">{</span> <span class="c1"># название товара - ключ, вариация цены за штуку - значение</span>
+            <span class="s2">&quot;Яблоки&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> 
+            <span class="s2">&quot;Груши&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+            <span class="s2">&quot;Картофель&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+            <span class="s2">&quot;Ананасы&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+            <span class="s2">&quot;Виноград&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+            <span class="s2">&quot;Мандарины&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+            <span class="s2">&quot;Клубника&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+            <span class="s2">&quot;Бананы&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+            <span class="s2">&quot;Черешня&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+            <span class="s2">&quot;Дыни&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+           <span class="p">}</span>
+    
+    <span class="c1"># страна (куда экспортируется товар)</span>
+    <span class="n">country</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Россия&quot;</span><span class="p">,</span> <span class="s2">&quot;Китай&quot;</span><span class="p">,</span> <span class="s2">&quot;США&quot;</span><span class="p">,</span> <span class="s2">&quot;Грузия&quot;</span><span class="p">,</span> <span class="s2">&quot;Казахстан&quot;</span><span class="p">,</span> 
+               <span class="s2">&quot;Алжир&quot;</span><span class="p">,</span> <span class="s2">&quot;Индия&quot;</span><span class="p">,</span> <span class="s2">&quot;Швеция&quot;</span><span class="p">,</span> <span class="s2">&quot;Франция&quot;</span><span class="p">,</span> <span class="s2">&quot;Финляндия&quot;</span><span class="p">]</span>
+    
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># список всех полей </span>
+    <span class="n">field</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># список одного поля</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">countOfFields</span><span class="p">):</span>
+        <span class="n">for_name</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="c1"># генерация числа от 0 до 9 для выбора случайного названия продукта</span>
+        <span class="n">for_country</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="c1"># генерация числа от 0 до 9 для выбора случайной страны</span>
+        
+        <span class="c1"># заполнение поля</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="n">for_name</span><span class="p">])</span> <span class="c1"># добавление случайного названия продукта в поле</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">country</span><span class="p">[</span><span class="n">for_country</span><span class="p">])</span> <span class="c1"># добавление случайной страны в поле</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span> <span class="o">:=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">10_000</span><span class="p">))</span> <span class="c1"># добавление случайного объема в поле, v - объем поставляемой продукции</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span> <span class="o">*</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">*</span><span class="n">name</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="n">for_name</span><span class="p">]]))</span> <span class="c1"># добавление цены, относительно объема</span>
+        
+        <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="c1"># запись поля в список всех полей</span>
+        <span class="n">field</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># очищение списка для одного поля</span>
+        
+    <span class="k">return</span> <span class="n">data</span></div>
+
+<span class="n">cOF</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">3500</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">6000</span><span class="p">,</span> <span class="mi">7000</span><span class="p">,</span> <span class="mi">10_000</span><span class="p">,</span> <span class="mi">20_000</span><span class="p">,</span> <span class="mi">50_000</span><span class="p">,</span> <span class="mi">70_000</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">]</span> <span class="c1"># список количества наборов данных</span>
+
+<span class="c1"># запись в файл</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cOF</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;..\data\db_</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s1">.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span> <span class="c1"># открытие файлов на запись</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">generator</span><span class="p">(</span><span class="n">countOfFields</span> <span class="o">=</span> <span class="n">c</span><span class="p">),</span> <span class="n">outfile</span><span class="p">)</span> <span class="c1"># запись списка всех полей в файл</span>
+
+<div class="viewcode-block" id="exportedGoods"><a class="viewcode-back" href="../lab_2.html#lab_2.exportedGoods">[документация]</a><span class="k">class</span> <span class="nc">exportedGoods</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Класс, содержащий в себе данные об экспортируемых товарах.</span>
+
+<span class="sd">    :param name: Наименование товара</span>
+<span class="sd">    :type name: str</span>
+<span class="sd">    </span>
+<span class="sd">    :param country: Страна (куда экспортируется товар)</span>
+<span class="sd">    :type country: str</span>
+<span class="sd">    </span>
+<span class="sd">    :param volume: Объем поставляемой продукции</span>
+<span class="sd">    :type volume: int</span>
+<span class="sd">    </span>
+<span class="sd">    :param price: Сумма в рублях</span>
+<span class="sd">    :type price: int</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># конструктор класса</span>
+<div class="viewcode-block" id="exportedGoods.__init__"><a class="viewcode-back" href="../index.html#lab_2.exportedGoods.__init__">[документация]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">country</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Конструктор класса.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">country</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">volume</span> <span class="o">=</span> <span class="n">volume</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">price</span></div>
+        
+    <span class="c1"># строковое представление объекта</span>
+<div class="viewcode-block" id="exportedGoods.__str__"><a class="viewcode-back" href="../index.html#lab_2.exportedGoods.__str__">[документация]</a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># для читаемости</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Перегрузка метода __str__.</span>
+<span class="sd">        Строковое представление объекта.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: Возвращает строковое представление объекта.</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">country</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">volume</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="p">)</span></div>
+        
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># однозначное представление объекта в виде строки</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+    
+    
+    <span class="c1"># перегрузка &gt;</span>
+<div class="viewcode-block" id="exportedGoods.__gt__"><a class="viewcode-back" href="../index.html#lab_2.exportedGoods.__gt__">[документация]</a>    <span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Перегрузка оператора &gt;</span>
+
+<span class="sd">        :param other: Объект класса :class:`exportedGoods`, с которым проводится сравнение </span>
+<span class="sd">        :type other: :class:`exportedGoods`</span>
+
+<span class="sd">        :return: True, если данный объект больше объекта other, иначе False</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">name</span></div>
+    
+    <span class="c1"># перегрузка &lt;</span>
+<div class="viewcode-block" id="exportedGoods.__lt__"><a class="viewcode-back" href="../index.html#lab_2.exportedGoods.__lt__">[документация]</a>    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span> 
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Перегрузка оператора &lt;</span>
+
+<span class="sd">        :param other: Объект класса :class:`exportedGoods`, с которым проводится сравнение </span>
+<span class="sd">        :type other: :class:`exportedGoods`</span>
+
+<span class="sd">        :return: True, если данный объект меньше объекта other, иначе False</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">name</span></div>
+    
+    <span class="c1"># перегрузка &gt;=</span>
+<div class="viewcode-block" id="exportedGoods.__ge__"><a class="viewcode-back" href="../index.html#lab_2.exportedGoods.__ge__">[документация]</a>    <span class="k">def</span> <span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Перегрузка оператора &gt;=</span>
+
+<span class="sd">        :param other: Объект класса :class:`exportedGoods`, с которым проводится сравнение </span>
+<span class="sd">        :type other: :class:`exportedGoods`</span>
+
+<span class="sd">        :return: True, если данный объект больше или равен объекта other, иначе False</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span> <span class="o">&lt;</span> <span class="n">other</span><span class="p">)</span></div>
+        
+    <span class="c1"># перегрузка &lt;=</span>
+<div class="viewcode-block" id="exportedGoods.__le__"><a class="viewcode-back" href="../index.html#lab_2.exportedGoods.__le__">[документация]</a>    <span class="k">def</span> <span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span> 
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Перегрузка оператора &lt;=</span>
+
+<span class="sd">        :param other: Объект класса :class:`exportedGoods`, с которым проводится сравнение </span>
+<span class="sd">        :type other: :class:`exportedGoods`</span>
+
+<span class="sd">        :return: True, если данный объект меньше или равен объекта other, иначе False</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span> <span class="o">&gt;</span> <span class="n">other</span><span class="p">)</span></div></div>
+
+
+<span class="c1"># сортировка слиянием</span>
+<span class="c1"># выполнение сортировки</span>
+<div class="viewcode-block" id="mergeSort"><a class="viewcode-back" href="../lab_2.html#lab_2.mergeSort">[документация]</a><span class="k">def</span> <span class="nf">mergeSort</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Сортировка слиянием. В данной функции проиходит рекурсивное распадания массивов</span>
+<span class="sd">    на две части. Далее два образовавшихся массива передаются в функицю mergeTwoList,</span>
+<span class="sd">    в которой происходит объединение переданных массивов.</span>
+
+<span class="sd">    :param lst: Массив, который нужно отсортировать</span>
+<span class="sd">    :type lst: list</span>
+
+<span class="sd">    :return: Объединенный массив</span>
+<span class="sd">    :rtype: list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># если список состоит из одного элемента, то мы возвращаем его</span>
+        <span class="k">return</span> <span class="n">lst</span>
+
+    <span class="c1"># рекурсивное распадание списков</span>
+    <span class="n">left_part</span> <span class="o">=</span> <span class="n">mergeSort</span><span class="p">(</span><span class="n">lst</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">])</span>  <span class="c1"># находим левую часть от начала до середины не включительно</span>
+    <span class="n">right_part</span> <span class="o">=</span> <span class="n">mergeSort</span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:])</span>  <span class="c1"># находим правую часть от середины и до конца списка</span>
+
+    <span class="c1"># объединение двух списков</span>
+    <span class="k">return</span> <span class="n">mergeTwoList</span><span class="p">(</span><span class="n">left_part</span><span class="p">,</span> <span class="n">right_part</span><span class="p">)</span></div>
+
+
+<span class="c1"># объединение двух списков</span>
+<div class="viewcode-block" id="mergeTwoList"><a class="viewcode-back" href="../lab_2.html#lab_2.mergeTwoList">[документация]</a><span class="k">def</span> <span class="nf">mergeTwoList</span><span class="p">(</span><span class="n">lst1</span><span class="p">,</span> <span class="n">lst2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    В данной функции происходит объединение двух массивов. При чем элемент первого массива</span>
+<span class="sd">    сравнивается с элементом второго массива и меньший элемент добавляется в объединенный массив.</span>
+<span class="sd">    Если один из массивов достигает конца после цикла, а другой нет, то в объединенный массив</span>
+<span class="sd">    добавляются оставшиеся элементы не достигшего конца массива.</span>
+
+<span class="sd">    :param lst1: Массив, который нужно объединить со вторым массивом</span>
+<span class="sd">    :type lst1: list</span>
+<span class="sd">    :param lst2: Массив, который нужно объединить с первым массивом</span>
+<span class="sd">    :type lst2: list</span>
+
+<span class="sd">    :return: Объединенный массив</span>
+<span class="sd">    :rtype: list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># указывает на первый элемент списка lst1</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># указывает на первый элемент списка lst2</span>
+
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst2</span><span class="p">):</span>  <span class="c1"># пока указатели элементов списка не превышают длины этих списков</span>
+        <span class="c1"># цикл будет выполнятся</span>
+        <span class="k">if</span> <span class="n">lst1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">lst2</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>  <span class="c1"># если i-й элемент списка lst1 меньше j-го элемента списка lst2,</span>
+            <span class="c1"># то i-й элемент списка lst1 добавляется в объединенный список</span>
+            <span class="c1"># и мы продвигаемся по списку дальше</span>
+            <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lst1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># если j-й элемент списка lst2 меньше или равен i-му элементу списка lst2,</span>
+            <span class="c1"># то j-й элемент списка lst2 добавляется в объединенный список</span>
+            <span class="c1"># и мы продвигаемся по списку дальше</span>
+            <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lst2</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c1"># после цикла один список может достигнуть конца, а второй нет</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst1</span><span class="p">):</span>
+        <span class="n">lst</span> <span class="o">+=</span> <span class="n">lst1</span><span class="p">[</span><span class="n">i</span><span class="p">:]</span>
+    <span class="k">if</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst2</span><span class="p">):</span>
+        <span class="n">lst</span> <span class="o">+=</span> <span class="n">lst2</span><span class="p">[</span><span class="n">j</span><span class="p">:]</span>
+
+    <span class="c1"># возвращаем объединенный список</span>
+    <span class="k">return</span> <span class="n">lst</span></div>
+
+<span class="c1"># прямой поиск</span>
+<div class="viewcode-block" id="directSearch"><a class="viewcode-back" href="../lab_2.html#lab_2.directSearch">[документация]</a><span class="k">def</span> <span class="nf">directSearch</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    В данной функции реализован прямой поиск. Проходимся по массиву и поэлементно делаем</span>
+<span class="sd">    сравнение с ключем. Если элемент с ключем совпадает, то мы добавляем его в новый массив. Если</span>
+<span class="sd">    элемент не нашелся, то возвращаем -1, иначе получившийся массив.</span>
+
+<span class="sd">    :param key: Ключ, по которому осуществляется поиск</span>
+<span class="sd">    :type key: str</span>
+<span class="sd">    :param lst: Исходный массив, в котором осуществляется поиск</span>
+<span class="sd">    :type lst: list</span>
+
+<span class="sd">    :return: Массив найденных элементов</span>
+<span class="sd">    :rtype: list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">search_lst</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>  <span class="c1"># проходимся по массиву и поэлементно делаем сравнение с ключем,</span>
+        <span class="c1"># если элемент с ключем совпадает, то мы добавляем его в новый массив</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">el</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+            <span class="n">search_lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">search_lst</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># если элемент не нашелся, то возвращаем -1, иначе получившийся массив</span>
+        <span class="k">return</span> <span class="n">search_lst</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></div>
+
+
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span><span class="p">,</span> <span class="n">floor</span>
+
+
+<span class="c1"># бинарный поиск</span>
+<div class="viewcode-block" id="binarySearch"><a class="viewcode-back" href="../lab_2.html#lab_2.binarySearch">[документация]</a><span class="k">def</span> <span class="nf">binarySearch</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    В данной функции реализован бинарный поиск. Сравниваем центральный элемент с ключем.</span>
+<span class="sd">    Если центральный элемент массива больше ключа, то отбрасываем левую часть массива.</span>
+<span class="sd">    Если центральный элемент массива меньше ключа, то отбрасываем правую часть массива.</span>
+<span class="sd">    И продолжаем этот алгоритм, пока не найдем нужный элемент, либо поймем, что данного</span>
+<span class="sd">    элемента в массиве нет. Если элемент был найден, то переходим к следующему этапу поиска,</span>
+<span class="sd">    и после его завершения возращаем массив, с найденными элементами. Если данного элемента</span>
+<span class="sd">    в массиве нет, то возвращаем -1.</span>
+
+<span class="sd">    :param key: Ключ, по которому осуществляется поиск</span>
+<span class="sd">    :type key: str</span>
+<span class="sd">    :param lst: Исходный массив, в котором осуществляется поиск</span>
+<span class="sd">    :type lst: list</span>
+
+<span class="sd">    :return: Массив найденных элементов</span>
+<span class="sd">    :rtype: list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># указатель на левую границу</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># указатель на правую границу</span>
+
+    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">:</span>  <span class="c1"># если правая граница стала &gt;= левой, тогда это эквивалентно тому,</span>
+        <span class="c1"># что элемент не был найден</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># указатель на центральный элемент массива</span>
+        <span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">&lt;</span> <span class="n">key</span><span class="p">:</span>  <span class="c1"># если элемент &lt; ключа, тогда мы сдвигаем левую границу вправо на mid + 1</span>
+            <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">lst</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">&gt;</span> <span class="n">key</span><span class="p">:</span>  <span class="c1"># если элемент &gt; ключа, тогда мы сдвигаем правую границу влево на mid - 1</span>
+            <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># если элемент равен ключу, тогда мы переходим к следующему этапу поиска</span>
+            <span class="c1"># возвращаем склеенные списки, исключая в левом последний элемент</span>
+            <span class="k">return</span> <span class="n">binSecondPhase</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">key</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">binSecondPhase</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></div>
+
+
+<div class="viewcode-block" id="binSecondPhase"><a class="viewcode-back" href="../lab_2.html#lab_2.binSecondPhase">[документация]</a><span class="k">def</span> <span class="nf">binSecondPhase</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Данная функция является продолжением бинарного поиска. Сравниваются элементы массива,</span>
+<span class="sd">    на которые указывают start и end с ключем, тогда возвращается список элементов, иначе</span>
+<span class="sd">    будет выполняться следующий алгаритм: если элемент, на который указывает фиксированная</span>
+<span class="sd">    левая граница совпадает с ключем и центральный элемент не совпадает с ключем, тогда</span>
+<span class="sd">    сдвигаем правую границу на указатель на центральный элемент с округлением вниз. Если</span>
+<span class="sd">    данное условие не выполняется, тогда сравниваются элемент, на который указывает</span>
+<span class="sd">    фиксированная левая граница и центральный элемент с ключем, и если они совпадают,</span>
+<span class="sd">    то правая граница уменьшается на 1. Если данное условие не выполняется, тогда проверяется</span>
+<span class="sd">    если элемент, на который указывает фиксированная правая граница совпадает с ключем</span>
+<span class="sd">    и центральный элемент не совпадает с ключем, то сдвигается левая граница на указатель</span>
+<span class="sd">    на центральный элемент с округлением вверх. Если данное условие тоже не выаолняется, тогда</span>
+<span class="sd">    сравниваются элемент, на который указывает фиксированная правая граница и центральный элемент</span>
+<span class="sd">    с ключем. Если они совпадают, то левая граница увеличивается на 1. Возвращается список</span>
+<span class="sd">    найденных элементов.</span>
+
+<span class="sd">    :param lst: Исходный массив, в котором осуществляется поиск</span>
+<span class="sd">    :type lst: list</span>
+<span class="sd">    :param start: левая граница массива</span>
+<span class="sd">    :type start: int</span>
+<span class="sd">    :param end: правая граница массива</span>
+<span class="sd">    :type end: int</span>
+<span class="sd">    :param key: Ключ, по которому осуществляется поиск</span>
+<span class="sd">    :type key: str</span>
+
+<span class="sd">    :return: Массив найденных элементов</span>
+<span class="sd">    :rtype: list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="n">lst</span><span class="p">[</span><span class="n">start</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="n">key</span> <span class="ow">or</span> <span class="n">lst</span><span class="p">[</span><span class="n">end</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="n">key</span><span class="p">:</span>  <span class="c1"># если элементы массива, на которые указывают start и end</span>
+        <span class="c1"># совпали с key, тогда возвращаем найденный список элементов</span>
+        <span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="n">start</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">lst</span><span class="p">[</span>
+            <span class="n">floor</span><span class="p">((</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)]</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="n">key</span><span class="p">:</span>  <span class="c1"># если элемент, на который указывает фиксированная левая граница</span>
+            <span class="c1"># совпадает с ключем и центральный элемент не совпадает с ключем</span>
+            <span class="c1"># тогда сдвигаем правую границу на указатель</span>
+            <span class="c1"># на центральный элемент с округлением вниз</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">floor</span><span class="p">((</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">lst</span><span class="p">[</span><span class="n">start</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">lst</span><span class="p">[</span>
+            <span class="n">floor</span><span class="p">((</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)]</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>  <span class="c1"># если элемент, на который указывает фиксированная левая граница</span>
+            <span class="c1"># и центральный элемент совпадают с ключем, то правую границу уменьшаем на 1</span>
+            <span class="n">end</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">lst</span><span class="p">[</span><span class="n">ceil</span><span class="p">((</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)]</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">lst</span><span class="p">[</span>
+            <span class="n">end</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>  <span class="c1"># если элемент, на который указывает фиксированная правая граница</span>
+            <span class="c1"># совпадает с ключем и центральный элемент не совпадает с ключем</span>
+            <span class="c1"># тогда сдвигаем левую границу на указатель</span>
+            <span class="c1"># на центральный элемент с округлением вверх</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">((</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">lst</span><span class="p">[</span><span class="n">ceil</span><span class="p">((</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)]</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">lst</span><span class="p">[</span>
+            <span class="n">end</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>  <span class="c1"># если элемент, на который указывает фиксированная правая граница</span>
+            <span class="c1"># и центральный элемент совпадают с ключем, то левую границу увеличиваем на 1</span>
+            <span class="n">start</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)]</span></div>
+
+
+<span class="c1"># In[11]:</span>
+
+
+
+
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">multidict</span> <span class="kn">import</span> <span class="n">MultiDict</span> <span class="c1"># ассоциативный массив (в соответствие ключу ставится элемент)</span>
+
+<span class="n">time_lst_direct</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># список времени выполнения прямого поиска</span>
+<span class="n">time_lst_bin</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># список времени выполнения бинарного поиска</span>
+<span class="n">time_lst_bin_and_sort</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># список времени выполнения бинарного поиска и сортировки</span>
+<span class="n">time_lst_md</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># список времени выполнения поиска по ассоциативному массиву</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cOF</span><span class="p">:</span>
+    <span class="c1"># чтение из файла</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;..\data\db_</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s1">.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span> <span class="c1"># открытие файла для чтения</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span> <span class="c1"># загрузка данных из файла</span>
+    
+    <span class="n">key</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)][</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># ключ для поиска</span>
+        
+    <span class="c1"># добавление элементов, взятых из файла, в список (как объекты класса)</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">exportedGoods</span><span class="p">(</span><span class="o">*</span><span class="n">d</span><span class="p">))</span>
+        
+    <span class="c1"># создаём и заполняем MultiDict</span>
+    <span class="n">multi_dict</span> <span class="o">=</span> <span class="n">MultiDict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
+        <span class="n">multi_dict</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+    <span class="c1"># создание копии для сортировки</span>
+    <span class="n">lst1</span> <span class="o">=</span> <span class="n">lst</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> 
+
+    <span class="c1"># сортировки слиянием</span>
+    <span class="c1"># запоминаем настоящее время до начала сортировки и бинарного поиска </span>
+    <span class="c1"># и настоящее время после окончания сортировки и бинарного поиска</span>
+    <span class="n">t_before</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="n">lst1</span> <span class="o">=</span> <span class="n">mergeSort</span><span class="p">(</span><span class="n">lst1</span><span class="p">)</span>
+    <span class="n">binarySearch</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">lst1</span><span class="p">)</span>
+    <span class="n">t_after</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+    <span class="c1"># добавляем разность времени после окончания работы сортировки и бинарного поиска</span>
+    <span class="c1"># и до начала работы сортировки и бинарного поиска</span>
+    <span class="c1"># преобразовываем разность в строку и забираем секунды и микросекунды, как вещественное число  </span>
+    <span class="n">time_lst_bin_and_sort</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">t_after</span> <span class="o">-</span> <span class="n">t_before</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    
+    
+    <span class="c1"># запоминаем настоящее время до начала прямого поиска </span>
+    <span class="c1"># и настоящее время после окончания прямого поиска</span>
+    <span class="n">t_before</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="n">result_direct</span> <span class="o">=</span> <span class="n">directSearch</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">lst1</span><span class="p">)</span>
+    <span class="n">t_after</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+    <span class="c1"># добавляем разность времени после окончания работы прямого поиска</span>
+    <span class="c1"># и до начала работы прямого поиска</span>
+    <span class="c1"># преобразовываем разность в строку и забираем секунды и микросекунды, как вещественное число</span>
+    <span class="n">time_lst_direct</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">t_after</span> <span class="o">-</span> <span class="n">t_before</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    
+    
+    <span class="c1"># запоминаем настоящее время до начала бинарного поиска </span>
+    <span class="c1"># и настоящее время после окончания бинарного поиска</span>
+    <span class="n">t_before</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="n">result_bin</span> <span class="o">=</span> <span class="n">binarySearch</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">lst1</span><span class="p">)</span>
+    <span class="n">t_after</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    
+    <span class="c1"># добавляем разность времени после окончания работы бинарного поиска</span>
+    <span class="c1"># и до начала работы бинарного поиска</span>
+    <span class="c1"># преобразовываем разность в строку и забираем секунды и микросекунды, как вещественное число</span>
+    <span class="n">time_lst_bin</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">t_after</span> <span class="o">-</span> <span class="n">t_before</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    
+    
+    <span class="c1"># запоминаем настоящее время до начала поиска по ассациативному массиву</span>
+    <span class="c1"># и настоящее время после окончания поиска по ассациативному массиву</span>
+    <span class="n">t_before</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="n">result_md</span> <span class="o">=</span> <span class="n">multi_dict</span><span class="o">.</span><span class="n">getall</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="n">t_after</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    
+    <span class="c1"># добавляем разность времени после окончания работы поиска по ассациативному массиву</span>
+    <span class="c1"># и до начала работы поиска по ассациативному массиву</span>
+    <span class="c1"># преобразовываем разность в строку и забираем секунды и микросекунды, как вещественное число</span>
+    <span class="n">time_lst_md</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">t_after</span> <span class="o">-</span> <span class="n">t_before</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    
+    
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;time_lst_direct = </span><span class="si">{</span><span class="n">time_lst_direct</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;time_lst_bin = </span><span class="si">{</span><span class="n">time_lst_bin</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;time_lst_bin_and_sort = </span><span class="si">{</span><span class="n">time_lst_bin_and_sort</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;time_lst_md = </span><span class="si">{</span><span class="n">time_lst_md</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># In[10]:</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;result_direct = &quot;</span><span class="p">,</span> <span class="n">result_direct</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;result_bin = &quot;</span><span class="p">,</span> <span class="n">result_bin</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;result_md = &quot;</span><span class="p">,</span> <span class="n">result_md</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># построение графиков</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">time_lst_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">time_lst_direct</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cOF</span><span class="p">,</span> <span class="n">time_lst_np</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;линейный поиск&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># In[12]:</span>
+
+
+<span class="n">time_lst_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">time_lst_bin</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cOF</span><span class="p">,</span> <span class="n">time_lst_bin</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;бинарный поиск&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># In[13]:</span>
+
+
+<span class="n">time_lst_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">time_lst_bin_and_sort</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cOF</span><span class="p">,</span> <span class="n">time_lst_bin_and_sort</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;бинарный поиск и сортировка&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># In[14]:</span>
+
+
+<span class="n">time_lst_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">time_lst_md</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cOF</span><span class="p">,</span> <span class="n">time_lst_md</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;multidict&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Andrej Gilin.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
